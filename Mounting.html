@@ -11,11 +11,15 @@
 <div id = "app"></div>
 <script src = "http://fb.me/react-0.11.1.js"></script>
 <script src="http://fb.me/JSXTransformer-0.11.1.js" ></script>
+<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 <script type="text/jsx">
     /** @jsx React.DOM */
 
     var Dashboard = React.createClass({
 
+        loadData:function(){
+            $.get('https://gsr-demo.firebaseio-demo.com/' + this.props.url + '/.json');
+        },
         componentWillMount: function(){
             debugger;
         },
