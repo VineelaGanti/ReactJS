@@ -1,5 +1,6 @@
 /** @jsx React.DOM  */
 var React = require('react');
+
 var subMessage = React.createClass({
 
     handleDelete: function(e){
