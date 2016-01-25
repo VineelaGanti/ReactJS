@@ -18,7 +18,7 @@
     var Dashboard = React.createClass({
 
         loadData:function(){
-            $.get('https://gsr-demo.firebaseio-demo.com/' + this.props.url + '/.json');
+           return $.get('https://gsr-demo.firebaseio-demo.com/' + this.props.url + '/.json');
         },
         componentWillMount: function(){
             debugger;
@@ -26,6 +26,13 @@
 
         componentDidMount: function(){
             debugger;
+            this.loadData()
+                    .then(function(data){
+                      this.setState({
+                          metric:data
+                      });
+                    }.bind(this));
+
         },
 
         getInitialState: function(){
@@ -45,7 +52,7 @@
     });
 
     var dashComponent = React.renderComponent(
-            <Dashboard></Dashboard>,
+            <Dashboard url="metric"></Dashboard>,
             document.getElementById('app')
     );
 
